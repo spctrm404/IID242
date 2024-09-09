@@ -1,0 +1,86 @@
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap';
+
+:root {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-optical-sizing: auto;
+}
+
+.section {
+  container-type: inline-size;
+}
+
+.container {
+  max-width: 60rem;
+  padding: 5rem;
+  margin-inline: auto;
+
+  &:has(.button) {
+    display: grid;
+    place-items: center center;
+  }
+}
+
+@container (width < 37.5rem) {
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+.font-px {
+  font-size: 16px;
+
+  @at-root .section:has(&) {
+    background-color: oklch(98% 0.05 30deg);
+  }
+
+  &.container {
+    background-color: oklch(95% 0.05 30deg);
+  }
+}
+
+.font-rem {
+  font-size: 1rem;
+
+  @at-root .section:has(&) {
+    background-color: oklch(98% 0.05 120deg);
+  }
+
+  &.container {
+    background-color: oklch(95% 0.05 120deg);
+  }
+}
+
+.button {
+  width: fit-content;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 512rem;
+  transition: all 100ms ease-out;
+
+  @at-root .font-px & {
+    padding-block: 10px;
+    padding-inline: 24px;
+    line-height: 20px;
+    color: oklch(90% 0.01 30deg);
+    background-color: oklch(40% 0.15 30deg);
+
+    &:hover {
+      background-color: oklch(30% 0.15 30deg);
+    }
+  }
+
+  @at-root .font-rem & {
+    padding-block: 0.625rem;
+    padding-inline: 1.5rem;
+    line-height: 1.25rem;
+    color: oklch(90% 0.01 120deg);
+    background-color: oklch(40% 0.15 120deg);
+
+    &:hover {
+      background-color: oklch(30% 0.15 120deg);
+    }
+  }
+}
